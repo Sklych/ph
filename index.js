@@ -15,6 +15,24 @@ const appState = {
     connectedWallet: undefined
 };
 
+async function sendTransaction(tonConnectUI, amount) {
+    const transaction = {
+      validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec exp time
+      messages: [
+        {
+          address: "UQDde3w4YGvwyLci1IWtC2COwFj63dnI-b7QbPolGD7_oLNX",
+          amount: amount * 10 ** 9,
+        },
+      ]
+    };
+  
+    try {
+      return await tonConnectUI.sendTransaction(transaction);
+    } catch (e) {
+      return null;
+    }
+  }
+
 function updateStakingInfo(value) {
     const stakingInfo = document.getElementById('staking-info');
     const now = new Date();
@@ -109,7 +127,26 @@ function updateStakeButton(tonConnectUI) {
     stakeButton.addEventListener("click", () => {
         playHapticNavigation();
         if (isWalletConected) {
-            // todo init transaction
+            (async () => {
+                try {
+                    const result = await sendTransaction(tonConnectUI, 0.01);
+                    if (result) {
+                        console.log("Tx result ", JSON.stringify(result))
+                        const message = "Success";
+                        const icon = "img/completed.svg"
+                        playHapticSuccess();
+                        showSnackbar(message, icon);
+                        return result;
+                    } else {
+                        const message = "Error. Try again";
+                        const icon = "img/error.svg"
+                        playHapticError();
+                        showSnackbar(message, icon);
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+            })();
         } else {
             tonConnectUI.openModal();
         }
@@ -119,7 +156,6 @@ function updateStakeButton(tonConnectUI) {
 
 function initUi() {
     initSlider();
-   
 
     const tabs = document.querySelectorAll(".tab-item");
     const payoutProfitButtons = document.querySelectorAll(".interval-btn");
