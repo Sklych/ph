@@ -36,25 +36,25 @@ function versionAtLeast(webAppVersion, ver) {
   }
   
   function playHapticNavigation() {
-    if (versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
+    if (appConfig.telegramWebApp && versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
       appConfig.telegramWebApp.HapticFeedback.impactOccurred('soft')
     }
   }
   
   function playHapticSuccess() {
-    if (versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
+    if (appConfig.telegramWebApp && versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
       appConfig.telegramWebApp.HapticFeedback.notificationOccurred('success')
     }
   }
 
   function playHapticWarning() {
-    if (versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
+    if (appConfig.telegramWebApp && versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
       appConfig.telegramWebApp.HapticFeedback.notificationOccurred('warning')
     }
   }
   
   function playHapticError() {
-    if (versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
+    if (appConfig.telegramWebApp && versionAtLeast(appConfig.telegramWebApp.version, '6.1')) {
       appConfig.telegramWebApp.HapticFeedback.notificationOccurred('error')
     }
   }

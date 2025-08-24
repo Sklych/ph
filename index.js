@@ -170,12 +170,12 @@ function initUi() {
                 updatePayoutProfitButtonsSelection()
             } else if (index === profitIntervals.get("month")) {
                 const message = "Not available";
-                const icon = "../img/warning.svg"
+                const icon = "img/warning.svg"
                 playHapticWarning();
                 showSnackbar(message, icon);
             } else if (index === profitIntervals.get("year")) {
                 const message = "Not available";
-                const icon = "../img/warning.svg"
+                const icon = "img/warning.svg"
                 playHapticWarning();
                 showSnackbar(message, icon);
             }
