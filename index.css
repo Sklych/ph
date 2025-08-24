@@ -119,9 +119,9 @@ body {
 #stakeBtn {
     display: none;
     position: fixed;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
     padding: 16px;
     background: #7CFC00;
     color: black;
