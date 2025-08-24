@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mythril</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js?58"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <script src="core.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <main id="app">
+        <nav class="tab-view">
+            <div class="tab-items">
+                <button class="tab-item">Stake</button>
+                <button class="tab-item">Community</button>
+            </div>
+        </nav>
+    
+        <div id="staking-info" class="staking-text"></div>
+    
+        <div id="staking-slider-container">
+            <div id="staking-slider-text" class="staking-text"></div>
+            <input type="range" id="staking-slider" min="0" max="100" value="0" step="1" />
+        </div>
+
+        <div id="profit-interval-section">
+            <h2 class="section-title">Profit Payout Interval</h2>
+            <div class="interval-buttons">
+                <button class="interval-btn" data-interval="day">Day</button>
+                <button class="interval-btn" data-interval="week">Week</button>
+                <button class="interval-btn" data-interval="month">Month</button>
+                <button class="interval-btn" data-interval="year">Year</button>
+            </div>
+        </div>
+
+        <div class="cell-list">
+          <div style="height: 16px"></div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon"/>
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="view-blockchain">View in Blockchain</span>
+            </div>
+          </div>
+        
+          <div class="cell">
+            <img src="img/completed.svg" alt="completed" class="cell-icon" />
+            <div class="row main-row">
+              <div class="column">
+                <span class="title">Stake</span>
+                <div class="vertical-space"></div>
+                <div class="row">
+                  <span class="text-secondary">1.0</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                  <span class="text-secondary">-></span>
+                  <span class="text-secondary">1.1</span>
+                  <img src="img/ton.svg" alt="ton" class="icon" />
+                </div>
+              </div>
+              <span class="profit-text">Profit on 28th August</span>
+            </div>
+          </div>
+        </div>
+        
+        
+    </main>
+    
+    <button id="stakeBtn" type="button">Stake</button>
+  </body>
+</html>
