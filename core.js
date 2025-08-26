@@ -205,6 +205,7 @@ async function stake(initData, { tx_boc, payout_interval, wallet, staked_amount,
 
 async function isStakeAvailable(initData) {
   try {
+    console.log("core js isStakeAvailable initData", initData)
     const params = new URLSearchParams({ });
     if (initData) params.append('initData', initData);
     const response = await fetch(`${appConfig.base_url}/checkStake?${params.toString()}`, {

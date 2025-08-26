@@ -276,6 +276,7 @@ function updateStakeButtonText(stakeButton, wallet) {
 }
 
 async function isStakeAvailable() {
+    console.log("index js isStakeAvailable initData", window.appConfig.telegramWebApp.initData)
     return await window.isStakeAvailable(window.appConfig.telegramWebApp.initData)
 }
 
