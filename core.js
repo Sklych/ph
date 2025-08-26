@@ -211,10 +211,18 @@ async function isStakeAvailable(initData) {
       method: "GET",
     });
 
-    return response.status === 200;
+    if (response.status === 200) {
+      return true;
+    } else if (response.status === 409) {
+      return false
+    } else {
+      const error = Error(`Error checking stake with status code=${response.status}`)
+      console.error(error);
+      throw error;
+    }
   } catch (error) {
-    console.error("Error checking stake:", error);
-    return false;
+    console.error("Error checking isStakeAvailable", error);
+    throw error
   }
 }
 
