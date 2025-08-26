@@ -275,7 +275,7 @@ function updateStakeButtonText(stakeButton, wallet) {
     }
 }
 
-async function isStakeAvailable() {
+async function isLocalStakeAvailable() {
     console.log("index js isStakeAvailable initData", window.appConfig.telegramWebApp.initData)
     return await window.isStakeAvailable(window.appConfig.telegramWebApp.initData)
 }
@@ -291,7 +291,7 @@ function updateStakeButton(tonConnectUI, user) {
         if (isWalletConected) {
             (async () => {
                 try {
-                    const isStkAvailable = await isStakeAvailable();
+                    const isStkAvailable = await isLocalStakeAvailable();
                     console.log("isStakeAvailable=", isStkAvailable)
                     if (!isStkAvailable) {
                         const message = "Only one active stake is allowed";
