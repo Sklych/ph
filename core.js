@@ -24,12 +24,12 @@ const debugAppConfig = {
 
 const prodAppConfig = {
   enableLogs: false,
-  base_url: "http://127.0.0.1:5001",
+  base_url: "http://80.78.31.25:5001",
   hasRealTgWebApp: true,
   telegramWebApp: telegramWA
 }
 
-const appConfig = debugAppConfig;
+const appConfig = prodAppConfig;
 
 if (!appConfig.enableLogs) {
   console.log = function () { };
