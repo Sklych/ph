@@ -23,7 +23,6 @@ const appState = {
     connectedWallet: undefined
 };
 
-// todo пофиксить баг что стейкинг доступен даже когда уже есть стейкинг в процессе
 async function sendTransaction(tonConnectUI, amount, payload) {
     const transaction = {
         validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec exp time
@@ -375,7 +374,7 @@ function initUi(user) {
                 appState.selectedTab = index;
                 updateTabsSelection();
             } else if (index === tabItems.get("community")) {
-                // todo open community
+                window.open("https://t.me/myphrill_community")
             } else if (index === tabItems.get("pool")) {
                 const message = "Available soon";
                 const icon = null;
