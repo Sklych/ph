@@ -116,7 +116,7 @@ body {
     cursor: pointer;
 }
 
-#stakeBtn {
+.stakeBtn {
     position: fixed;
     left: 16px;
     right: 16px;
@@ -266,4 +266,10 @@ body {
   
   .text-secondary {
     color: var(--color-text-secondary);
+  }
+
+  .icon-info {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
   }

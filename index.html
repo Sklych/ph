@@ -1,46 +1,62 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mythril</title>
-    <link rel="stylesheet" href="index.css" />
-    <script src="https://telegram.org/js/telegram-web-app.js?58"></script>
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-    <script type="module" src="core.js"></script>
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <main id="app">
-        <nav class="tab-view">
-            <div class="tab-items">
-                <button class="tab-item">Stake</button>
-                <button class="tab-item">Community</button>
-                <button class="tab-item">Pool</button>
-            </div>
-        </nav>
-    
-        <div id="staking-info" class="staking-text"></div>
-    
-        <div id="staking-slider-container">
-            <div id="staking-slider-text" class="staking-text"></div>
-            <input type="range" id="staking-slider" min="0" max="100" value="0" step="1" />
-        </div>
 
-        <div id="profit-interval-section">
-            <h2 class="section-title">Profit Payout Interval</h2>
-            <div class="interval-buttons">
-                <button class="interval-btn" data-interval="day">Day</button>
-                <button class="interval-btn" data-interval="week">Week</button>
-                <button class="interval-btn" data-interval="month">Month</button>
-                <button class="interval-btn" data-interval="year">Year</button>
-            </div>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mythril</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="bottom-sheet.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js?58"></script>
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  <script type="module" src="core.js"></script>
+  <script src="bottom-sheet.js"></script>
+  <script src="index.js"></script>
+</head>
 
-        <div class="cell-list">
-        </div>
-    </main>
-    
-    <button id="stakeBtn" type="button">Stake</button>
-  </body>
+<body>
+
+  <div class="transaction-info-bottom-sheet" id="transactionInfoContainer">
+    <div class="overlay" id="overlay"></div>
+    <div class="sheet" id="sheet">
+      <button class="sheet-close" id="sheetClose">×</button>
+      <div class="sheet-title" id="sheetTitle"></div>
+      <div style="height: 16px"></div>
+      <button class="sheet-btn" id="sheetBtn">Got it</button>
+    </div>
+  </div>
+
+  <main id="app">
+    <nav class="tab-view">
+      <div class="tab-items">
+        <button class="tab-item">Stake</button>
+        <button class="tab-item">Community</button>
+        <button class="tab-item">Pool</button>
+      </div>
+    </nav>
+
+    <div id="staking-info" class="staking-text"></div>
+
+    <div id="staking-slider-container">
+      <div id="staking-slider-text" class="staking-text"></div>
+      <input type="range" id="staking-slider" min="0" max="100" value="0" step="1" />
+    </div>
+
+    <div id="profit-interval-section">
+      <h2 class="section-title">Profit Payout Interval</h2>
+      <div class="interval-buttons">
+        <button class="interval-btn" data-interval="day">Day</button>
+        <button class="interval-btn" data-interval="week">Week</button>
+        <button class="interval-btn" data-interval="month">Month</button>
+        <button class="interval-btn" data-interval="year">Year</button>
+      </div>
+    </div>
+
+    <div class="cell-list">
+    </div>
+  </main>
+
+  <button class="stakeBtn" id="stakeBtn" type="button">Stake</button>
+</body>
+
 </html>

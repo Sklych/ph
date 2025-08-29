@@ -163,9 +163,10 @@ function renderTransactions(transactions) {
                 iconSrc = "img/completed.svg";
                 rightElement = document.createElement("span");
                 rightElement.className = "view-blockchain";
-                rightElement.textContent = "View in Blockchain";
+                rightElement.textContent = "View Transaction";
                 rightElement.addEventListener("click", () => {
-                    window.open(`https://tonviewer.com/${tx.returned_tx_hash}`, "_blank");
+                    window.playHapticNavigation();
+                    window.open(`https://tonviewer.com/transaction/${tx.returned_tx_hash}`, "_blank");
                 });
                 break;
 
@@ -176,12 +177,18 @@ function renderTransactions(transactions) {
                 rightElement.textContent = "Waiting confirmation";
                 break;
 
-            case TxStatus.success:
-                iconSrc = "img/completed.svg";
-                rightElement = document.createElement("span");
-                rightElement.className = "text-secondary";
-                rightElement.textContent = formatProfitDate(tx.time_stamp_profit);
-                break;
+                case TxStatus.success:
+                    iconSrc = "img/completed.svg";
+                    rightElement = document.createElement("img");
+                    rightElement.src = "img/info.svg"; 
+                    rightElement.className = "icon-info"; 
+                    rightElement.alt = "info";
+                
+                    rightElement.addEventListener("click", () => {
+                        playHapticNavigation();
+                        window.openInfoModal(formatProfitDate(tx.time_stamp_profit));
+                    });
+                    break;
 
             case TxStatus.failure:
                 iconSrc = "img/error.svg";
@@ -419,8 +426,6 @@ function initUi(user) {
     updatePayoutProfitButtonsSelection();
 }
 
-
-
 window.onload = function () {
     (async () => {
         try {
@@ -432,7 +437,7 @@ window.onload = function () {
                 console.log(`Load user=${JSON.stringify(result)}`)
                 initUi(result);
                 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-                    manifestUrl: 'https://sklych.github.io/door/tonconnect-manifest.json', // todo replace
+                    manifestUrl: 'https://sklych.github.io/ph/tonconnect-manifest.json',
                     language: 'en',
                 });
                 updateStakeButton(tonConnectUI, result)
