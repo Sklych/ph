@@ -24,7 +24,7 @@ const debugAppConfig = {
 
 const prodAppConfig = {
   enableLogs: false,
-  base_url: "https://api.mphhr.com",
+  base_url: "https://mphrl.com",
   hasRealTgWebApp: true,
   telegramWebApp: telegramWA
 }
