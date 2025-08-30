@@ -309,7 +309,7 @@ function updateStakeButton(tonConnectUI, user) {
                         showSnackbar(message, icon, duration);
                         return
                     }
-                    const amount = 0.01; // todo get amount from slider
+                    const amount = mapSliderToTON(appState.sliderValuePercent);
                     const payload = user.payload;
                     const txBoc = await sendTransaction(tonConnectUI, amount, payload);
                     // const txBoc = "te6cckEBBAEAtgAB5YgBuvb4cMDX4ZFuRakLWhbBHYCx9buzkfN9oNn0SjB9/0ADm0s7c///+ItFZA5IAAAAfFouCHmtjC+ql+83LVIKd+yMpFw0e3oGK36CRM/8+Xd7FwbIM6qQI3gPsaAJSc9NJGo2EO2f3JsRmGfpMW7GUA0BAgoOw8htAwIDAAAAZkIAbWCkBbDahLD3RuEhuE4EzaqpIQFGjt3G6Idph04YoROcxLQAAAAAAAAAAAAAAAAAAIOv1IY=";
