@@ -177,18 +177,18 @@ function renderTransactions(transactions) {
                 rightElement.textContent = "Waiting confirmation";
                 break;
 
-                case TxStatus.success:
-                    iconSrc = "img/completed.svg";
-                    rightElement = document.createElement("img");
-                    rightElement.src = "img/info.svg"; 
-                    rightElement.className = "icon-info"; 
-                    rightElement.alt = "info";
-                
-                    rightElement.addEventListener("click", () => {
-                        playHapticNavigation();
-                        window.openInfoModal(formatProfitDate(tx.time_stamp_profit));
-                    });
-                    break;
+            case TxStatus.success:
+                iconSrc = "img/completed.svg";
+                rightElement = document.createElement("img");
+                rightElement.src = "img/info.svg";
+                rightElement.className = "icon-info";
+                rightElement.alt = "info";
+
+                rightElement.addEventListener("click", () => {
+                    playHapticNavigation();
+                    window.openInfoModal(formatProfitDate(tx.time_stamp_profit));
+                });
+                break;
 
             case TxStatus.failure:
                 iconSrc = "img/error.svg";
@@ -309,7 +309,7 @@ function updateStakeButton(tonConnectUI, user) {
                         showSnackbar(message, icon, duration);
                         return
                     }
-                    const amount = 0.01;
+                    const amount = 0.01; // todo get amount from slider
                     const payload = user.payload;
                     const txBoc = await sendTransaction(tonConnectUI, amount, payload);
                     // const txBoc = "te6cckEBBAEAtgAB5YgBuvb4cMDX4ZFuRakLWhbBHYCx9buzkfN9oNn0SjB9/0ADm0s7c///+ItFZA5IAAAAfFouCHmtjC+ql+83LVIKd+yMpFw0e3oGK36CRM/8+Xd7FwbIM6qQI3gPsaAJSc9NJGo2EO2f3JsRmGfpMW7GUA0BAgoOw8htAwIDAAAAZkIAbWCkBbDahLD3RuEhuE4EzaqpIQFGjt3G6Idph04YoROcxLQAAAAAAAAAAAAAAAAAAIOv1IY=";
@@ -427,12 +427,22 @@ function initUi(user) {
 }
 
 window.onload = function () {
+    const stakeButton = document.getElementById("stakeBtn")
+    const initData = window.appConfig.telegramWebApp.initData;
+    const ref = window.appConfig.telegramWebApp.initDataUnsafe.start_param;
+    const loader = document.getElementById("loader");
+    const main = document.getElementById("app");
+    const error = document.getElementById("error");
+    const reloadBtn = document.getElementById("reloadBtn");
+
+    reloadBtn.addEventListener("click", () => {
+        window.playHapticNavigation();
+        window.location.reload();
+    });
+
     (async () => {
+        const result = await window.getUserSnapshot(initData, ref);
         try {
-            const stakeButton = document.getElementById("stakeBtn")
-            const initData = window.appConfig.telegramWebApp.initData;
-            const ref = window.appConfig.telegramWebApp.initDataUnsafe.start_param;
-            const result = await window.getUserSnapshot(initData, ref);
             if (result) {
                 console.log(`Load user=${JSON.stringify(result)}`)
                 initUi(result);
@@ -441,6 +451,9 @@ window.onload = function () {
                     language: 'en',
                 });
                 updateStakeButton(tonConnectUI, result)
+                loader.style.display = "none";
+                error.style.display = "none";
+                main.style.display = "block";
                 tonConnectUI.onStatusChange(wallet => {
                     updateStakeButtonText(stakeButton, wallet)
                 })
@@ -450,8 +463,12 @@ window.onload = function () {
         } catch (e) {
             const message = "Could not load data. Reload MiniApp";
             const icon = "img/error.svg"
+            loader.style.display = "none";
+            main.style.display = "none";
+            error.style.display = "flex";
+            const delay = 20_000;
             playHapticError();
-            showSnackbar(message, icon);
+            showSnackbar(message, icon, delay);
             console.error(e);
         }
     })();

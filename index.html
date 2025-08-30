@@ -26,7 +26,15 @@
     </div>
   </div>
 
-  <main id="app">
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <div id="error" style="display: none;">
+    <button id="reloadBtn">Reload App</button>
+  </div>
+  
+  <main id="app" style="display: none;">
     <nav class="tab-view">
       <div class="tab-items">
         <button class="tab-item">Stake</button>
@@ -54,9 +62,8 @@
 
     <div class="cell-list">
     </div>
+    <button class="stakeBtn" id="stakeBtn" type="button">Stake</button>
   </main>
-
-  <button class="stakeBtn" id="stakeBtn" type="button">Stake</button>
 </body>
 
 </html>
