@@ -447,7 +447,7 @@ window.onload = function () {
                 console.log(`Load user=${JSON.stringify(result)}`)
                 initUi(result);
                 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-                    manifestUrl: 'https://sklych.github.io/ph/tonconnect-manifest.json',
+                    manifestUrl: 'https://sklych.github.io/ph/assets/tonconnect-manifest.json',
                     language: 'en',
                 });
                 updateStakeButton(tonConnectUI, result)
