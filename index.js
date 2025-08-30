@@ -28,7 +28,7 @@ async function sendTransaction(tonConnectUI, amount, payload) {
         validUntil: Math.floor(Date.now() / 1000) + 60, // 60 sec exp time
         messages: [
             {
-                address: "UQDde3w4YGvwyLci1IWtC2COwFj63dnI-b7QbPolGD7_oLNX",
+                address: "UQASqON-8mxnR1J-9uICQLFe7ozIqimY-CiuxKv-JbD2cJK0",
                 amount: amount * 10 ** 9,
                 payload: payload
             },
